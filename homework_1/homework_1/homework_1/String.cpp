@@ -39,6 +39,7 @@ inline int String::getSize()
 }
 
 void String::changeString(const char* str)
+	
 {
 	delete[] str_;
 	size_ = strlen(str) + 1;
@@ -64,8 +65,7 @@ char String::insertSymbol(int index, const char symbol)
 		return 0;
 	}
 	++size_;
-	char* strT = new char[size_];
-	strcpy_s(strT, size_, str_);
+	char* strT = new char[size_];	
 	strncpy_s(strT, size_, str_, index + 1);
 	strT[index] = symbol;
 	strcat_s(strT, size_, &str_[index]);
@@ -81,15 +81,13 @@ void String::printAnsiiCods()
 
 void String::upperString()
 {
-	for (int i = 0; i < size_; ++i)
-	if (str_[i] >= 'a' && str_[i] <= 'z')
+	for (int i = 0; i < size_; ++i)	
 		str_[i] = toupper(str_[i]);
 }
 
 void String::lowString()
 {
-	for (int i = 0; i < size_; ++i)
-	if (str_[i] >= 'A' && str_[i] <= 'Z')
+	for (int i = 0; i < size_; ++i)	
 		str_[i] = tolower(str_[i]);
 }
 
